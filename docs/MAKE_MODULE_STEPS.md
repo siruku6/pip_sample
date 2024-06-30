@@ -69,6 +69,8 @@ username: username for test account of PyPI
 password: password for test account of PyPI
 ```
 
+You can use API-token substituting username and password by the following [link](https://pypi.org/help/#apitoken).
+
 
 ## 5. upload to PyPI (TEST)
 
