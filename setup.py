@@ -10,33 +10,40 @@
 #     https://qiita.com/c60evaporator/items/e1ecccab07a607487dcf
 
 from setuptools import setup
-import pip_sample
 
-DESCRIPTION = "pip_sample: This shows necessary files and" \
+
+def get_version() -> str:
+    version: dict[str, str] = {"__name__": "__not_main__"}
+    with open("pip_sample/version.py") as fp:
+        exec(fp.read(), version)
+
+    return version["__version__"]
+
+
+DESCRIPTION = (
+    "pip_sample: This shows necessary files and"
     "structure of files for making a pip module."
+)
 NAME = "pip_sample"
 AUTHOR = "siruku6"
 AUTHOR_EMAIL = "sirukufarios@gmail.com"
 URL = "https://github.com/siruku6/pip_sample"
 LICENSE = "MIT License"
 DOWNLOAD_URL = "https://github.com/siruku6/pip_sample"
-VERSION = pip_sample.__version__
+VERSION = get_version()
 PYTHON_REQUIRES = ">=3.8"
 
 INSTALL_REQUIRES = [
     "requests>=2.27.0",
 ]
 EXTRAS_REQUIRE = {
-    "tutorial": [
-    ],
+    "tutorial": [],
 }
 TEST_REQUIRES = [
     "pytest>=3",
 ]
 
-PACKAGES = [
-    "pip_sample"
-]
+PACKAGES = ["pip_sample"]
 
 CLASSIFIERS = [
     # NOTE: Refer to this link, https://e-tec-memo.herokuapp.com/article/177/
@@ -73,5 +80,5 @@ setup(
     extras_require=EXTRAS_REQUIRE,
     tests_require=TEST_REQUIRES,
     packages=PACKAGES,
-    classifiers=CLASSIFIERS
+    classifiers=CLASSIFIERS,
 )
